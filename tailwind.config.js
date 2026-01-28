@@ -1,4 +1,3 @@
-const pterodactylConfig = require('./pterodactyl.tailwind.config'); // or wherever it is
 const colors = require('tailwindcss/colors');
 
 const gray = {
@@ -43,42 +42,91 @@ const accent = {
 module.exports = {
     darkMode: 'class',
     content: [
-        ...pterodactylConfig.content,
         './resources/scripts/**/*.{js,ts,tsx}',
+        './resources/views/**/*.{blade.php,html}',
     ],
     theme: {
         extend: {
-            ...pterodactylConfig.theme?.extend,
             fontFamily: {
-                ...(pterodactylConfig.theme?.extend?.fontFamily || {}),
                 header: ['"Inter"', '"Roboto"', 'system-ui', 'sans-serif'],
                 sans: ['"Inter"', '"Roboto"', 'system-ui', 'sans-serif'],
                 mono: ['"JetBrains Mono"', '"Source Code Pro"', 'SourceCodePro', 'monospace'],
             },
             colors: {
-                ...(pterodactylConfig.theme?.extend?.colors || {}),
                 black: 'hsl(220, 20%, 8%)',
                 background: 'hsl(220, 20%, 8%)',
                 foreground: 'hsl(0, 0%, 98%)',
+                
+                // VyroAI Brand Colors
                 primary: vyroAI,
                 vyroai: vyroAI,
+                
+                // Accent Blue
                 accent: accent,
+                
+                // Gray & Neutral
                 gray: gray,
                 neutral: gray,
+                
+                // Cyan - IMPORTANT for Pterodactyl compatibility
                 cyan: colors.cyan,
+                
+                // Standard Tailwind colors for compatibility
+                red: colors.red,
+                orange: colors.orange,
+                yellow: colors.yellow,
+                green: colors.green,
+                emerald: colors.emerald,
+                teal: colors.teal,
+                blue: colors.blue,
+                indigo: colors.indigo,
+                violet: colors.violet,
+                purple: colors.purple,
+                pink: colors.pink,
+                rose: colors.rose,
+                amber: colors.amber,
+                lime: colors.lime,
+                
+                // Semantic colors
                 success: colors.green,
                 warning: colors.amber,
                 danger: colors.red,
                 info: accent,
+                white: colors.white,
+                slate: colors.slate,
             },
-            // ... rest of your extensions
+            fontSize: {
+                '2xs': '0.625rem',
+            },
+            transitionDuration: {
+                250: '250ms',
+            },
+            borderColor: theme => ({
+                default: theme('colors.neutral.700', 'currentColor'),
+            }),
+            backgroundImage: {
+                'gradient-vyroai': 'linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%)',
+                'gradient-vyroai-dark': 'linear-gradient(135deg, hsl(262 60% 20%) 0%, hsl(220 60% 15%) 50%, hsl(220 60% 10%) 100%)',
+            },
+            boxShadow: {
+                'glow': '0 0 60px hsla(262, 90%, 65%, 0.25)',
+                'glow-lg': '0 0 80px hsla(262, 90%, 65%, 0.35)',
+            },
+            keyframes: {
+                'fade-in': {
+                    from: { opacity: '0', transform: 'translateY(10px)' },
+                    to: { opacity: '1', transform: 'translateY(0)' },
+                },
+            },
+            animation: {
+                'fade-in': 'fade-in 0.3s ease-out',
+            },
         },
     },
     plugins: [
-        ...(pterodactylConfig.plugins || []),
         require('@tailwindcss/line-clamp'),
         require('@tailwindcss/forms')({
             strategy: 'class',
         }),
     ]
-}
+};
