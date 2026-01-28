@@ -1,0 +1,23 @@
+# VyroAI Theme Package - Git Ignore
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Backup files
+*.backup
+*.bak
+
+# Compressed files
+*.zip
+*.tar.gz
