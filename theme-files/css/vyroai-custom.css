@@ -1,26 +1,32 @@
-/* VyroAI Panel - Custom Styles */
+/* VyroAI Panel - App-Matching Styles */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    /* VyroAI Color Variables */
-    --vyroai-primary: hsl(262, 83%, 58%);
-    --vyroai-primary-dark: hsl(262, 83%, 50%);
-    --vyroai-accent: hsl(220, 90%, 56%);
-    --vyroai-accent-dark: hsl(220, 90%, 50%);
+    /* VyroAI App-Matching Color Variables */
+    --vyroai-primary: hsl(262, 90%, 65%);  /* Brighter purple */
+    --vyroai-primary-dark: hsl(262, 85%, 60%);
+    --vyroai-accent: hsl(220, 90%, 60%);  /* Brighter blue */
+    --vyroai-accent-dark: hsl(220, 85%, 55%);
     
-    /* Gradients */
-    --gradient-vyroai: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(220 90% 56%) 100%);
-    --gradient-vyroai-dark: linear-gradient(135deg, hsl(262 50% 12%) 0%, hsl(220 50% 10%) 50%, hsl(250 50% 8%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(262 83% 95%) 0%, hsl(220 90% 95%) 50%, hsl(280 80% 95%) 100%);
+    /* Very Dark Background like app */
+    --bg-primary: hsl(220, 20%, 8%);
+    --bg-secondary: hsl(220, 18%, 12%);
+    --bg-tertiary: hsl(220, 16%, 16%);
+    
+    /* Gradients - Brighter like app */
+    --gradient-vyroai: linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%);
+    --gradient-vyroai-text: linear-gradient(135deg, hsl(262 95% 75%) 0%, hsl(220 95% 70%) 100%);
+    --gradient-vyroai-dark: linear-gradient(135deg, hsl(262 60% 20%) 0%, hsl(220 60% 15%) 50%, hsl(220 60% 10%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%);
     
     /* Glass Effects */
-    --glass-bg: hsla(250, 25%, 10%, 0.8);
-    --glass-border: hsla(250, 20%, 25%, 0.5);
+    --glass-bg: hsla(220, 18%, 12%, 0.7);
+    --glass-border: hsla(262, 90%, 65%, 0.2);
     
-    /* Shadows */
-    --shadow-glow: 0 0 60px hsla(262, 83%, 58%, 0.15);
-    --shadow-glow-lg: 0 0 80px hsla(262, 83%, 58%, 0.2);
-    --shadow-card: 0 4px 24px hsla(0, 0%, 0%, 0.3);
+    /* Shadows - More pronounced */
+    --shadow-glow: 0 0 40px hsla(262, 90%, 65%, 0.3);
+    --shadow-glow-lg: 0 0 60px hsla(262, 90%, 65%, 0.4);
+    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.6);
     
     /* Border Radius */
     --radius: 0.75rem;
@@ -29,8 +35,15 @@
 /* Base Body Styles */
 body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: hsl(250, 30%, 6%);
-    color: hsl(0, 0%, 95%);
+    background-color: var(--bg-primary) !important;
+    color: hsl(0, 0%, 98%);
+}
+
+/* Main content background */
+#app,
+.content-wrapper,
+main {
+    background-color: var(--bg-primary) !important;
 }
 
 /* Glass Morphism Effect */
@@ -50,15 +63,16 @@ body {
     background-image: var(--gradient-vyroai-dark);
 }
 
-/* Gradient Text */
+/* Gradient Text - Like app */
 .gradient-text {
-    background: var(--gradient-vyroai);
+    background: var(--gradient-vyroai-text);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 700;
 }
 
-/* Glow Effects */
+/* Glow Effects - Stronger */
 .shadow-glow {
     box-shadow: var(--shadow-glow);
 }
@@ -67,12 +81,12 @@ body {
     box-shadow: var(--shadow-glow-lg);
 }
 
-/* Card Shadow */
+/* Card Shadow - Stronger */
 .shadow-card {
     box-shadow: var(--shadow-card);
 }
 
-/* VyroAI Button Styles */
+/* VyroAI Button Styles - Brighter */
 .btn-vyroai {
     background: var(--gradient-vyroai);
     color: white;
@@ -81,6 +95,7 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: var(--shadow-glow);
+    border: none;
 }
 
 .btn-vyroai:hover {
@@ -124,6 +139,15 @@ body {
     }
 }
 
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px hsla(262, 90%, 65%, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px hsla(262, 90%, 65%, 0.6);
+    }
+}
+
 .animate-fade-in {
     animation: fade-in 0.3s ease-out;
 }
@@ -136,29 +160,34 @@ body {
     animation: shimmer 2s ease-in-out infinite;
 }
 
-/* Custom Scrollbar */
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar - Purple like app */
 ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: hsl(250, 25%, 10%);
+    background: var(--bg-secondary);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--vyroai-primary);
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--vyroai-primary-dark);
 }
 
-/* VyroAI Card Styles */
+/* VyroAI Card Styles - Darker */
 .vyroai-card {
-    background: hsl(250, 25%, 10%);
-    border: 1px solid hsl(250, 20%, 18%);
+    background: var(--bg-secondary);
+    border: 1px solid hsl(220, 16%, 20%);
     border-radius: var(--radius);
     box-shadow: var(--shadow-card);
     transition: all 0.3s ease;
@@ -170,16 +199,17 @@ body {
     transform: translateY(-2px);
 }
 
-/* Focus States with VyroAI Colors */
+/* Focus States with VyroAI Colors - Brighter */
 input:focus,
 textarea:focus,
 select:focus {
     border-color: var(--vyroai-primary) !important;
     ring-color: var(--vyroai-primary) !important;
-    box-shadow: 0 0 0 3px hsla(262, 83%, 58%, 0.1) !important;
+    box-shadow: 0 0 0 3px hsla(262, 90%, 65%, 0.2) !important;
+    outline: none !important;
 }
 
-/* Link Styles */
+/* Link Styles - Brighter */
 a {
     color: var(--vyroai-accent);
     transition: color 0.2s ease;
@@ -189,7 +219,7 @@ a:hover {
     color: var(--vyroai-primary);
 }
 
-/* Badge Styles */
+/* Badge Styles - Brighter */
 .badge-vyroai {
     background: var(--gradient-vyroai);
     color: white;
@@ -197,6 +227,7 @@ a:hover {
     border-radius: 9999px;
     font-size: 0.75rem;
     font-weight: 600;
+    box-shadow: var(--shadow-glow);
 }
 
 /* Hero Section Styles */
@@ -220,7 +251,7 @@ a:hover {
 
 /* Loading Spinner with VyroAI Colors */
 .spinner-vyroai {
-    border: 3px solid hsla(262, 83%, 58%, 0.2);
+    border: 3px solid hsla(262, 90%, 65%, 0.2);
     border-top: 3px solid var(--vyroai-primary);
     border-radius: 50%;
     width: 40px;
@@ -242,6 +273,10 @@ a:hover {
     background-color: var(--vyroai-primary);
 }
 
+.bg-vyroai-gradient {
+    background: var(--gradient-vyroai);
+}
+
 .border-vyroai {
     border-color: var(--vyroai-primary);
 }
@@ -249,6 +284,38 @@ a:hover {
 /* Smooth Page Transitions */
 .page-transition {
     animation: fade-in 0.3s ease-out;
+}
+
+/* Header/Navigation - Darker background */
+header,
+nav,
+.navigation,
+.navbar {
+    background-color: var(--bg-secondary) !important;
+    border-bottom: 1px solid hsl(220, 16%, 20%);
+}
+
+/* Sidebar - Darker background */
+.sidebar,
+aside {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Console/Terminal - Very dark like app */
+.console,
+.terminal,
+pre,
+code {
+    background-color: hsl(220, 20%, 6%) !important;
+    color: hsl(0, 0%, 95%);
+    border: 1px solid hsl(220, 16%, 18%);
+}
+
+/* Panels and containers - Darker */
+.panel,
+.container,
+.box {
+    background-color: var(--bg-secondary) !important;
 }
 
 /* Responsive Typography */
@@ -263,4 +330,31 @@ a:hover {
     .no-print {
         display: none !important;
     }
+}
+
+/* Enhanced glow for primary elements */
+button:not(.btn-secondary):not(.btn-danger),
+.primary-action {
+    position: relative;
+}
+
+button:not(.btn-secondary):not(.btn-danger):hover {
+    box-shadow: var(--shadow-glow-lg);
+}
+
+/* Status indicators with glow */
+.status-online {
+    color: hsl(142, 71%, 45%);
+    text-shadow: 0 0 10px hsla(142, 71%, 45%, 0.5);
+}
+
+.status-offline {
+    color: hsl(0, 84%, 60%);
+    text-shadow: 0 0 10px hsla(0, 84%, 60%, 0.5);
+}
+
+/* Make sure dark mode is applied */
+html.dark,
+html.dark body {
+    background-color: var(--bg-primary) !important;
 }
