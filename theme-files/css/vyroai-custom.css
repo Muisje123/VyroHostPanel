@@ -1,0 +1,266 @@
+/* VyroAI Panel - Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    /* VyroAI Color Variables */
+    --vyroai-primary: hsl(262, 83%, 58%);
+    --vyroai-primary-dark: hsl(262, 83%, 50%);
+    --vyroai-accent: hsl(220, 90%, 56%);
+    --vyroai-accent-dark: hsl(220, 90%, 50%);
+    
+    /* Gradients */
+    --gradient-vyroai: linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(220 90% 56%) 100%);
+    --gradient-vyroai-dark: linear-gradient(135deg, hsl(262 50% 12%) 0%, hsl(220 50% 10%) 50%, hsl(250 50% 8%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(262 83% 95%) 0%, hsl(220 90% 95%) 50%, hsl(280 80% 95%) 100%);
+    
+    /* Glass Effects */
+    --glass-bg: hsla(250, 25%, 10%, 0.8);
+    --glass-border: hsla(250, 20%, 25%, 0.5);
+    
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsla(262, 83%, 58%, 0.15);
+    --shadow-glow-lg: 0 0 80px hsla(262, 83%, 58%, 0.2);
+    --shadow-card: 0 4px 24px hsla(0, 0%, 0%, 0.3);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+}
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: hsl(250, 30%, 6%);
+    color: hsl(0, 0%, 95%);
+}
+
+/* Glass Morphism Effect */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+}
+
+/* VyroAI Gradient Background */
+.gradient-vyroai {
+    background-image: var(--gradient-vyroai);
+}
+
+.gradient-vyroai-dark {
+    background-image: var(--gradient-vyroai-dark);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: var(--gradient-vyroai);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Glow Effects */
+.shadow-glow {
+    box-shadow: var(--shadow-glow);
+}
+
+.shadow-glow-lg {
+    box-shadow: var(--shadow-glow-lg);
+}
+
+/* Card Shadow */
+.shadow-card {
+    box-shadow: var(--shadow-card);
+}
+
+/* VyroAI Button Styles */
+.btn-vyroai {
+    background: var(--gradient-vyroai);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--radius);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-vyroai:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-lg);
+}
+
+.btn-vyroai:active {
+    transform: translateY(0);
+}
+
+/* Smooth Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.4s ease-out;
+}
+
+.animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(250, 25%, 10%);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--vyroai-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--vyroai-primary-dark);
+}
+
+/* VyroAI Card Styles */
+.vyroai-card {
+    background: hsl(250, 25%, 10%);
+    border: 1px solid hsl(250, 20%, 18%);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+}
+
+.vyroai-card:hover {
+    border-color: var(--vyroai-primary);
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+}
+
+/* Focus States with VyroAI Colors */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--vyroai-primary) !important;
+    ring-color: var(--vyroai-primary) !important;
+    box-shadow: 0 0 0 3px hsla(262, 83%, 58%, 0.1) !important;
+}
+
+/* Link Styles */
+a {
+    color: var(--vyroai-accent);
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--vyroai-primary);
+}
+
+/* Badge Styles */
+.badge-vyroai {
+    background: var(--gradient-vyroai);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Hero Section Styles */
+.hero-gradient {
+    background-image: var(--gradient-hero);
+}
+
+.dark .hero-gradient {
+    background-image: var(--gradient-vyroai-dark);
+}
+
+/* Modern Card Hover Effect */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-glow-lg);
+}
+
+/* Loading Spinner with VyroAI Colors */
+.spinner-vyroai {
+    border: 3px solid hsla(262, 83%, 58%, 0.2);
+    border-top: 3px solid var(--vyroai-primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-vyroai {
+    color: var(--vyroai-primary);
+}
+
+.bg-vyroai {
+    background-color: var(--vyroai-primary);
+}
+
+.border-vyroai {
+    border-color: var(--vyroai-primary);
+}
+
+/* Smooth Page Transitions */
+.page-transition {
+    animation: fade-in 0.3s ease-out;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
