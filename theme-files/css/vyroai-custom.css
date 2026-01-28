@@ -1,360 +1,51 @@
-/* VyroAI Panel - App-Matching Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* VyroAI Panel - Exact App Match */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-    /* VyroAI App-Matching Color Variables */
-    --vyroai-primary: hsl(262, 90%, 65%);  /* Brighter purple */
-    --vyroai-primary-dark: hsl(262, 85%, 60%);
-    --vyroai-accent: hsl(220, 90%, 60%);  /* Brighter blue */
-    --vyroai-accent-dark: hsl(220, 85%, 55%);
-    
-    /* Very Dark Background like app */
-    --bg-primary: hsl(220, 20%, 8%);
-    --bg-secondary: hsl(220, 18%, 12%);
-    --bg-tertiary: hsl(220, 16%, 16%);
-    
-    /* Gradients - Brighter like app */
-    --gradient-vyroai: linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%);
-    --gradient-vyroai-text: linear-gradient(135deg, hsl(262 95% 75%) 0%, hsl(220 95% 70%) 100%);
-    --gradient-vyroai-dark: linear-gradient(135deg, hsl(262 60% 20%) 0%, hsl(220 60% 15%) 50%, hsl(220 60% 10%) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%);
-    
-    /* Glass Effects */
-    --glass-bg: hsla(220, 18%, 12%, 0.7);
-    --glass-border: hsla(262, 90%, 65%, 0.2);
-    
-    /* Shadows - More pronounced */
-    --shadow-glow: 0 0 40px hsla(262, 90%, 65%, 0.3);
-    --shadow-glow-lg: 0 0 60px hsla(262, 90%, 65%, 0.4);
-    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.6);
-    
-    /* Border Radius */
-    --radius: 0.75rem;
+    --vyroai-purple: #8b5cf6;
+    --vyroai-purple-bright: #a78bfa;
+    --vyroai-bg: #0d1117;
+    --vyroai-bg-card: #171c26;
 }
 
-/* Base Body Styles */
-body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: var(--bg-primary) !important;
-    color: hsl(0, 0%, 98%);
+body, html, #app {
+    background-color: var(--vyroai-bg) !important;
+    font-family: 'Inter', sans-serif !important;
 }
 
-/* Main content background */
-#app,
-.content-wrapper,
-main {
-    background-color: var(--bg-primary) !important;
+.bg-gray-900, .bg-neutral-900 {
+    background-color: var(--vyroai-bg) !important;
 }
 
-/* Glass Morphism Effect */
-.glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--glass-border);
+.bg-gray-800, .bg-neutral-800 {
+    background-color: var(--vyroai-bg-card) !important;
 }
 
-/* VyroAI Gradient Background */
-.gradient-vyroai {
-    background-image: var(--gradient-vyroai);
+button.bg-blue-600, button.bg-blue-500,
+.bg-blue-600, .bg-blue-500 {
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%) !important;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4) !important;
 }
 
-.gradient-vyroai-dark {
-    background-image: var(--gradient-vyroai-dark);
+button:hover.bg-blue-600, button:hover.bg-blue-500 {
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%) !important;
+    box-shadow: 0 6px 25px rgba(139, 92, 246, 0.6) !important;
 }
 
-/* Gradient Text - Like app */
-.gradient-text {
-    background: var(--gradient-vyroai-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
+nav, header {
+    background: linear-gradient(90deg, #8b5cf6 0%, #7c3aed 100%) !important;
 }
 
-/* Glow Effects - Stronger */
-.shadow-glow {
-    box-shadow: var(--shadow-glow);
+.text-blue-400, .text-blue-500, .text-blue-600 {
+    color: var(--vyroai-purple-bright) !important;
 }
 
-.shadow-glow-lg {
-    box-shadow: var(--shadow-glow-lg);
+[class*="ServerRow"], [class*="server-row"] {
+    background-color: var(--vyroai-bg-card) !important;
+    border: 1px solid #252935;
 }
 
-/* Card Shadow - Stronger */
-.shadow-card {
-    box-shadow: var(--shadow-card);
-}
-
-/* VyroAI Button Styles - Brighter */
-.btn-vyroai {
-    background: var(--gradient-vyroai);
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: var(--radius);
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: var(--shadow-glow);
-    border: none;
-}
-
-.btn-vyroai:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-glow-lg);
-}
-
-.btn-vyroai:active {
-    transform: translateY(0);
-}
-
-/* Smooth Animations */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slide-up {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes shimmer {
-    0% {
-        background-position: 200% 0;
-    }
-    100% {
-        background-position: -200% 0;
-    }
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 0 20px hsla(262, 90%, 65%, 0.3);
-    }
-    50% {
-        box-shadow: 0 0 40px hsla(262, 90%, 65%, 0.6);
-    }
-}
-
-.animate-fade-in {
-    animation: fade-in 0.3s ease-out;
-}
-
-.animate-slide-up {
-    animation: slide-up 0.4s ease-out;
-}
-
-.animate-shimmer {
-    animation: shimmer 2s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-    animation: pulse-glow 2s ease-in-out infinite;
-}
-
-/* Custom Scrollbar - Purple like app */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-::-webkit-scrollbar-track {
-    background: var(--bg-secondary);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: var(--vyroai-primary);
-    border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--vyroai-primary-dark);
-}
-
-/* VyroAI Card Styles - Darker */
-.vyroai-card {
-    background: var(--bg-secondary);
-    border: 1px solid hsl(220, 16%, 20%);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-card);
-    transition: all 0.3s ease;
-}
-
-.vyroai-card:hover {
-    border-color: var(--vyroai-primary);
-    box-shadow: var(--shadow-glow);
-    transform: translateY(-2px);
-}
-
-/* Focus States with VyroAI Colors - Brighter */
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--vyroai-primary) !important;
-    ring-color: var(--vyroai-primary) !important;
-    box-shadow: 0 0 0 3px hsla(262, 90%, 65%, 0.2) !important;
-    outline: none !important;
-}
-
-/* Link Styles - Brighter */
-a {
-    color: var(--vyroai-accent);
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--vyroai-primary);
-}
-
-/* Badge Styles - Brighter */
-.badge-vyroai {
-    background: var(--gradient-vyroai);
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    box-shadow: var(--shadow-glow);
-}
-
-/* Hero Section Styles */
-.hero-gradient {
-    background-image: var(--gradient-hero);
-}
-
-.dark .hero-gradient {
-    background-image: var(--gradient-vyroai-dark);
-}
-
-/* Modern Card Hover Effect */
-.card-hover {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-    transform: translateY(-4px) scale(1.01);
-    box-shadow: var(--shadow-glow-lg);
-}
-
-/* Loading Spinner with VyroAI Colors */
-.spinner-vyroai {
-    border: 3px solid hsla(262, 90%, 65%, 0.2);
-    border-top: 3px solid var(--vyroai-primary);
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Utility Classes */
-.text-vyroai {
-    color: var(--vyroai-primary);
-}
-
-.bg-vyroai {
-    background-color: var(--vyroai-primary);
-}
-
-.bg-vyroai-gradient {
-    background: var(--gradient-vyroai);
-}
-
-.border-vyroai {
-    border-color: var(--vyroai-primary);
-}
-
-/* Smooth Page Transitions */
-.page-transition {
-    animation: fade-in 0.3s ease-out;
-}
-
-/* Header/Navigation - Darker background */
-header,
-nav,
-.navigation,
-.navbar {
-    background-color: var(--bg-secondary) !important;
-    border-bottom: 1px solid hsl(220, 16%, 20%);
-}
-
-/* Sidebar - Darker background */
-.sidebar,
-aside {
-    background-color: var(--bg-secondary) !important;
-}
-
-/* Console/Terminal - Very dark like app */
-.console,
-.terminal,
-pre,
-code {
-    background-color: hsl(220, 20%, 6%) !important;
-    color: hsl(0, 0%, 95%);
-    border: 1px solid hsl(220, 16%, 18%);
-}
-
-/* Panels and containers - Darker */
-.panel,
-.container,
-.box {
-    background-color: var(--bg-secondary) !important;
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px;
-    }
-}
-
-/* Print Styles */
-@media print {
-    .no-print {
-        display: none !important;
-    }
-}
-
-/* Enhanced glow for primary elements */
-button:not(.btn-secondary):not(.btn-danger),
-.primary-action {
-    position: relative;
-}
-
-button:not(.btn-secondary):not(.btn-danger):hover {
-    box-shadow: var(--shadow-glow-lg);
-}
-
-/* Status indicators with glow */
-.status-online {
-    color: hsl(142, 71%, 45%);
-    text-shadow: 0 0 10px hsla(142, 71%, 45%, 0.5);
-}
-
-.status-offline {
-    color: hsl(0, 84%, 60%);
-    text-shadow: 0 0 10px hsla(0, 84%, 60%, 0.5);
-}
-
-/* Make sure dark mode is applied */
-html.dark,
-html.dark body {
-    background-color: var(--bg-primary) !important;
+[class*="ServerRow"]:hover {
+    border-color: var(--vyroai-purple) !important;
+    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3) !important;
 }
