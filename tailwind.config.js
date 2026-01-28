@@ -1,45 +1,45 @@
 const colors = require('tailwindcss/colors');
 
-// VyroAI Dark Theme Color Palette
+// VyroAI App-Matching Color Palette
 const gray = {
-    50: 'hsl(250, 30%, 96%)',
-    100: 'hsl(250, 25%, 91%)',
-    200: 'hsl(250, 20%, 82%)',
-    300: 'hsl(250, 15%, 65%)',
-    400: 'hsl(250, 15%, 55%)',
-    500: 'hsl(250, 15%, 45%)',
-    600: 'hsl(250, 20%, 35%)',
-    700: 'hsl(250, 25%, 25%)',
-    800: 'hsl(250, 25%, 15%)',
-    900: 'hsl(250, 30%, 10%)',
+    50: 'hsl(220, 20%, 98%)',
+    100: 'hsl(220, 18%, 95%)',
+    200: 'hsl(220, 16%, 88%)',
+    300: 'hsl(220, 14%, 75%)',
+    400: 'hsl(220, 12%, 60%)',
+    500: 'hsl(220, 10%, 45%)',
+    600: 'hsl(220, 12%, 35%)',
+    700: 'hsl(220, 15%, 25%)',
+    800: 'hsl(220, 18%, 16%)',  // Sidebar/Cards
+    900: 'hsl(220, 20%, 10%)',  // Main background - Very dark like app
 };
 
-// VyroAI Purple/Violet Primary Color
+// VyroAI Bright Purple (matching the app)
 const vyroAI = {
-    50: 'hsl(262, 83%, 95%)',
-    100: 'hsl(262, 83%, 90%)',
-    200: 'hsl(262, 83%, 80%)',
-    300: 'hsl(262, 83%, 70%)',
-    400: 'hsl(262, 83%, 65%)',
-    500: 'hsl(262, 83%, 58%)', // Main brand color
-    600: 'hsl(262, 83%, 50%)',
-    700: 'hsl(262, 83%, 45%)',
-    800: 'hsl(262, 83%, 40%)',
-    900: 'hsl(262, 83%, 35%)',
+    50: 'hsl(262, 100%, 97%)',
+    100: 'hsl(262, 100%, 95%)',
+    200: 'hsl(262, 100%, 90%)',
+    300: 'hsl(262, 100%, 80%)',
+    400: 'hsl(262, 95%, 70%)',
+    500: 'hsl(262, 90%, 65%)',  // Brighter main brand color
+    600: 'hsl(262, 85%, 60%)',
+    700: 'hsl(262, 80%, 55%)',
+    800: 'hsl(262, 75%, 50%)',
+    900: 'hsl(262, 70%, 45%)',
 };
 
-// VyroAI Accent Blue
+// VyroAI Accent Blue (brighter to match app)
 const accent = {
-    50: 'hsl(220, 90%, 95%)',
-    100: 'hsl(220, 90%, 85%)',
-    200: 'hsl(220, 90%, 75%)',
-    300: 'hsl(220, 90%, 65%)',
-    400: 'hsl(220, 90%, 60%)',
-    500: 'hsl(220, 90%, 56%)', // Accent color
-    600: 'hsl(220, 90%, 50%)',
-    700: 'hsl(220, 90%, 45%)',
-    800: 'hsl(220, 90%, 40%)',
-    900: 'hsl(220, 90%, 35%)',
+    50: 'hsl(220, 100%, 97%)',
+    100: 'hsl(220, 100%, 90%)',
+    200: 'hsl(220, 100%, 80%)',
+    300: 'hsl(220, 100%, 70%)',
+    400: 'hsl(220, 95%, 65%)',
+    500: 'hsl(220, 90%, 60%)',  // Brighter accent
+    600: 'hsl(220, 85%, 55%)',
+    700: 'hsl(220, 80%, 50%)',
+    800: 'hsl(220, 75%, 45%)',
+    900: 'hsl(220, 70%, 40%)',
 };
 
 module.exports = {
@@ -55,25 +55,25 @@ module.exports = {
                 mono: ['JetBrains Mono', 'monospace'],
             },
             colors: {
-                black: 'hsl(250, 30%, 6%)',
-                background: 'hsl(250, 30%, 6%)',
-                foreground: 'hsl(0, 0%, 95%)',
+                black: 'hsl(220, 20%, 8%)',  // Very dark like app
+                background: 'hsl(220, 20%, 8%)',
+                foreground: 'hsl(0, 0%, 98%)',
                 
-                // VyroAI Brand Colors
+                // VyroAI Brand Colors (brighter)
                 primary: vyroAI,
                 vyroai: vyroAI,
                 
-                // Accent Blue
+                // Accent Blue (brighter)
                 accent: accent,
                 
-                // Grays
+                // Grays (darker)
                 gray: gray,
                 neutral: gray,
                 
                 // Keep cyan for compatibility
                 cyan: colors.cyan,
                 
-                // Semantic colors with VyroAI theme
+                // Semantic colors
                 success: colors.green,
                 warning: colors.amber,
                 danger: colors.red,
@@ -94,13 +94,14 @@ module.exports = {
                 sm: 'calc(0.75rem - 4px)',
             },
             backgroundImage: {
-                'gradient-vyroai': 'linear-gradient(135deg, hsl(262 83% 58%) 0%, hsl(220 90% 56%) 100%)',
-                'gradient-vyroai-dark': 'linear-gradient(135deg, hsl(262 50% 12%) 0%, hsl(220 50% 10%) 50%, hsl(250 50% 8%) 100%)',
+                'gradient-vyroai': 'linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%)',
+                'gradient-vyroai-dark': 'linear-gradient(135deg, hsl(262 60% 20%) 0%, hsl(220 60% 15%) 50%, hsl(220 60% 10%) 100%)',
+                'gradient-hero': 'linear-gradient(135deg, hsl(262 90% 65%) 0%, hsl(220 90% 60%) 100%)',
             },
             boxShadow: {
-                'glow': '0 0 60px hsla(262, 83%, 58%, 0.15)',
-                'glow-lg': '0 0 80px hsla(262, 83%, 58%, 0.2)',
-                'card': '0 4px 24px hsla(0, 0%, 0%, 0.3)',
+                'glow': '0 0 60px hsla(262, 90%, 65%, 0.25)',
+                'glow-lg': '0 0 80px hsla(262, 90%, 65%, 0.35)',
+                'card': '0 4px 24px hsla(0, 0%, 0%, 0.5)',
             },
             keyframes: {
                 'fade-in': {
